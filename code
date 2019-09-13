@@ -1,0 +1,23 @@
+def is_palli(self):
+        cur=self.head       #assigining the head of the LL to current node
+        count=0             #using count to count the number of characters
+        while cur:
+            cur=cur.next
+            count+=1
+        if count%2==0:      #if the string has even number of characters, it cannot be a pallindrome
+            return
+        else:
+            cur=self.head
+            a=0                     #variable to store the summmation/subtraction of the ASCII value of the chars
+            mp=count//2             #finding the midpoint/pivot element of the string
+            for i in range(0,count):
+                if i<mp:                  #on the left side, we keep on adding the ASCII values
+                    a+=ord(cur.data)
+                elif i>mp:                  #on the right side we keep on subtracting the values
+                    a-=ord(cur.data)
+                cur=cur.next                #keeping on moving forward on the LL
+            
+        if a==0:               #summation of ASCII code on the left should be equal to the right and hence should cancel out
+            print("pallindrome")
+        else:
+            print("not a pallindrome")
